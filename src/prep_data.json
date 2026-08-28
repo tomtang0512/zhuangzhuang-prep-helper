@@ -1,0 +1,891 @@
+{
+  "dishes": [
+    {
+      "category": "纤体Easy碗",
+      "name": "缤纷鲜蔬纤体Easy碗",
+      "has_styles": false,
+      "modules": {
+        "主食模块": {"name": "烤贝贝南瓜块", "spec": "75g"},
+        "蔬菜碗模块": {"name": "沙拉碗基底（无鸡蛋）", "spec": "1份"}
+      },
+      "option_groups": [
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "焙煎芝麻口味沙拉汁", "spec": "1份"},
+            {"name": "0脂青柚油醋汁", "spec": "1份"},
+            {"name": "低脂椒麻凉拌汁", "spec": "1份"},
+            {"name": "低脂意大利黑醋沙拉汁", "spec": "1份"},
+            {"name": "0脂黑钻黑松露沙拉汁", "spec": "1份"},
+            {"name": "0脂无花果醋沙拉汁", "spec": "1份"},
+            {"name": "0卡桂花酱", "spec": "1份"},
+            {"name": "不要料汁", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "纤体Easy碗",
+      "name": "柠檬黑椒去皮鸡腿排纤体Easy碗",
+      "has_styles": false,
+      "modules": {
+        "肉类模块": {"name": "去皮去骨鸡腿肉（基础腌制）", "spec": "160g"},
+        "蔬菜碗模块": {"name": "沙拉碗基底（有鸡蛋）", "spec": "1份"},
+        "调味模块": {"name": "黑胡椒酱", "spec": "1份"}
+      },
+      "option_groups": [
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "焙煎芝麻口味沙拉汁", "spec": "1份"},
+            {"name": "0脂青柚油醋汁", "spec": "1份"},
+            {"name": "低脂椒麻凉拌汁", "spec": "1份"},
+            {"name": "低脂意大利黑醋沙拉汁", "spec": "1份"},
+            {"name": "0脂黑钻黑松露沙拉汁", "spec": "1份"},
+            {"name": "0脂无花果醋沙拉汁", "spec": "1份"},
+            {"name": "0卡桂花酱", "spec": "1份"},
+            {"name": "不要料汁", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "调味模块",
+          "items": [
+            {"name": "柠檬1/6块", "spec": "1份"},
+            {"name": "不要柠檬", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "纤体Easy碗",
+      "name": "地中海香草鸡胸肉纤体Easy碗",
+      "has_styles": false,
+      "modules": {
+        "肉类模块": {"name": "鸡小胸（地中海）", "spec": "140g"},
+        "蔬菜碗模块": {"name": "沙拉碗基底（有鸡蛋）", "spec": "1份"}
+      },
+      "option_groups": [
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "焙煎芝麻口味沙拉汁", "spec": "1份"},
+            {"name": "0脂青柚油醋汁", "spec": "1份"},
+            {"name": "低脂椒麻凉拌汁", "spec": "1份"},
+            {"name": "低脂意大利黑醋沙拉汁", "spec": "1份"},
+            {"name": "0脂黑钻黑松露沙拉汁", "spec": "1份"},
+            {"name": "0脂无花果醋沙拉汁", "spec": "1份"},
+            {"name": "0卡桂花酱", "spec": "1份"},
+            {"name": "不要料汁", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "调味模块",
+          "items": [
+            {"name": "柠檬1/6块", "spec": "1份"},
+            {"name": "不要柠檬", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "纤体Easy碗",
+      "name": "三文鱼纤体Easy碗",
+      "has_styles": false,
+      "modules": {
+        "肉类模块": {"name": "三文鱼块（表面撒少许黑胡椒碎）", "spec": "120g"},
+        "蔬菜碗模块": {"name": "沙拉碗基底（有鸡蛋）", "spec": "1份"}
+      },
+      "option_groups": [
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "焙煎芝麻口味沙拉汁", "spec": "1份"},
+            {"name": "0脂青柚油醋汁", "spec": "1份"},
+            {"name": "低脂椒麻凉拌汁", "spec": "1份"},
+            {"name": "低脂意大利黑醋沙拉汁", "spec": "1份"},
+            {"name": "0脂黑钻黑松露沙拉汁", "spec": "1份"},
+            {"name": "0脂无花果醋沙拉汁", "spec": "1份"},
+            {"name": "0卡桂花酱", "spec": "1份"},
+            {"name": "不要料汁", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "调味模块",
+          "items": [
+            {"name": "柠檬1/6块", "spec": "1份"},
+            {"name": "不要柠檬", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "纤体Easy碗",
+      "name": "虾仁·牛油果双拼纤体Easy碗",
+      "has_styles": false,
+      "modules": {
+        "肉类模块": {"name": "虾仁（表面撒少许黑胡椒碎）", "spec": "10颗"},
+        "蔬菜碗模块": {"name": "沙拉碗基底（有鸡蛋）", "spec": "1份"},
+        "调味模块": {"name": "柠檬1/6块", "spec": "1份"}
+      },
+      "option_groups": [
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "焙煎芝麻口味沙拉汁", "spec": "1份"},
+            {"name": "0脂青柚油醋汁", "spec": "1份"},
+            {"name": "低脂椒麻凉拌汁", "spec": "1份"},
+            {"name": "低脂意大利黑醋沙拉汁", "spec": "1份"},
+            {"name": "0脂黑钻黑松露沙拉汁", "spec": "1份"},
+            {"name": "0脂无花果醋沙拉汁", "spec": "1份"},
+            {"name": "0卡桂花酱", "spec": "1份"},
+            {"name": "不要料汁", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "纤体Easy碗",
+      "name": "原切板腱牛排纤体Easy碗",
+      "has_styles": false,
+      "modules": {
+        "肉类模块": {"name": "板腱牛排", "spec": "130g"},
+        "蔬菜碗模块": {"name": "沙拉碗基底（有鸡蛋）", "spec": "1份"}
+      },
+      "option_groups": [
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "焙煎芝麻口味沙拉汁", "spec": "1份"},
+            {"name": "0脂青柚油醋汁", "spec": "1份"},
+            {"name": "低脂椒麻凉拌汁", "spec": "1份"},
+            {"name": "低脂意大利黑醋沙拉汁", "spec": "1份"},
+            {"name": "0脂黑钻黑松露沙拉汁", "spec": "1份"},
+            {"name": "0脂无花果醋沙拉汁", "spec": "1份"},
+            {"name": "0卡桂花酱", "spec": "1份"},
+            {"name": "不要料汁", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "纤体Easy碗",
+      "name": "进口上脑牛肉片纤体Easy碗",
+      "has_styles": false,
+      "modules": {
+        "肉类模块": {"name": "牛肉片（巴西上脑）", "spec": "150g"},
+        "蔬菜碗模块": {"name": "沙拉碗基底（有鸡蛋）", "spec": "1份"}
+      },
+      "option_groups": [
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "焙煎芝麻口味沙拉汁", "spec": "1份"},
+            {"name": "0脂青柚油醋汁", "spec": "1份"},
+            {"name": "低脂椒麻凉拌汁", "spec": "1份"},
+            {"name": "低脂意大利黑醋沙拉汁", "spec": "1份"},
+            {"name": "0脂黑钻黑松露沙拉汁", "spec": "1份"},
+            {"name": "0脂无花果醋沙拉汁", "spec": "1份"},
+            {"name": "0卡桂花酱", "spec": "1份"},
+            {"name": "不要料汁", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "纤体Easy碗",
+      "name": "虾仁·柠檬黑椒去皮鸡腿排双拼纤体Easy碗",
+      "has_styles": false,
+      "modules": {
+        "肉类模块": {"name": "虾仁（表面撒少许黑胡椒碎）", "spec": "4颗"},
+        "蔬菜碗模块": {"name": "沙拉碗基底（有鸡蛋）", "spec": "1份"},
+        "调味模块": {"name": "黑胡椒酱", "spec": "1份"}
+      },
+      "option_groups": [
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "焙煎芝麻口味沙拉汁", "spec": "1份"},
+            {"name": "0脂青柚油醋汁", "spec": "1份"},
+            {"name": "低脂椒麻凉拌汁", "spec": "1份"},
+            {"name": "低脂意大利黑醋沙拉汁", "spec": "1份"},
+            {"name": "0脂黑钻黑松露沙拉汁", "spec": "1份"},
+            {"name": "0脂无花果醋沙拉汁", "spec": "1份"},
+            {"name": "0卡桂花酱", "spec": "1份"},
+            {"name": "不要料汁", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "调味模块",
+          "items": [
+            {"name": "柠檬1/6块", "spec": "1份"},
+            {"name": "不要柠檬", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "蛋白pro碗",
+      "name": "照烧去皮鸡腿排·牛排双拼蛋白Pro碗",
+      "has_styles": true,
+      "styles": [
+        {
+          "style_name": "标准款",
+          "modules": {
+            "肉类模块": {"name": "去皮去骨鸡腿肉（照烧）", "spec": "100g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        },
+        {
+          "style_name": "加肉款",
+          "modules": {
+            "肉类模块": {"name": "去皮去骨鸡腿肉（照烧）", "spec": "140g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        }
+      ],
+      "option_groups": [
+        {
+          "group_name": "主食模块",
+          "items": [
+            {"name": "七色糙米杂粮饭", "spec": "150g"},
+            {"name": "三色藜麦糙米饭", "spec": "150g"},
+            {"name": "南瓜+红薯", "spec": "150g"}
+          ]
+        },
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "0脂海鲜汁", "spec": "1份"},
+            {"name": "0脂青椒酱", "spec": "1份"},
+            {"name": "0脂黑椒酱", "spec": "1份"},
+            {"name": "香草柠檬蘸水", "spec": "1份"},
+            {"name": "黑松露山葵沙拉酱", "spec": "1份"},
+            {"name": "0脂香菇牛肉酱", "spec": "1份"},
+            {"name": "不要酱料", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "蛋白pro碗",
+      "name": "地中海香草鸡胸肉·虾仁双拼蛋白Pro碗",
+      "has_styles": true,
+      "styles": [
+        {
+          "style_name": "标准款",
+          "modules": {
+            "肉类模块": {"name": "鸡小胸（地中海）", "spec": "100g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        },
+        {
+          "style_name": "加肉款",
+          "modules": {
+            "肉类模块": {"name": "鸡小胸（地中海）", "spec": "150g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        }
+      ],
+      "option_groups": [
+        {
+          "group_name": "主食模块",
+          "items": [
+            {"name": "七色糙米杂粮饭", "spec": "150g"},
+            {"name": "三色藜麦糙米饭", "spec": "150g"},
+            {"name": "南瓜+红薯", "spec": "150g"}
+          ]
+        },
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "0脂海鲜汁", "spec": "1份"},
+            {"name": "0脂青椒酱", "spec": "1份"},
+            {"name": "0脂黑椒酱", "spec": "1份"},
+            {"name": "香草柠檬蘸水", "spec": "1份"},
+            {"name": "黑松露山葵沙拉酱", "spec": "1份"},
+            {"name": "0脂香菇牛肉酱", "spec": "1份"},
+            {"name": "不要酱料", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "调味模块",
+          "items": [
+            {"name": "柠檬1/6块", "spec": "1份"},
+            {"name": "不要柠檬", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "蛋白pro碗",
+      "name": "三文鱼·虾仁蛋白双拼Pro碗",
+      "has_styles": true,
+      "styles": [
+        {
+          "style_name": "标准款",
+          "modules": {
+            "肉类模块": {"name": "三文鱼块（表面撒少许黑胡椒碎）", "spec": "100g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        },
+        {
+          "style_name": "加肉款",
+          "modules": {
+            "肉类模块": {"name": "三文鱼块（表面撒少许黑胡椒碎）", "spec": "150g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        }
+      ],
+      "option_groups": [
+        {
+          "group_name": "主食模块",
+          "items": [
+            {"name": "七色糙米杂粮饭", "spec": "150g"},
+            {"name": "三色藜麦糙米饭", "spec": "150g"},
+            {"name": "南瓜+红薯", "spec": "150g"}
+          ]
+        },
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "0脂海鲜汁", "spec": "1份"},
+            {"name": "0脂青椒酱", "spec": "1份"},
+            {"name": "0脂黑椒酱", "spec": "1份"},
+            {"name": "香草柠檬蘸水", "spec": "1份"},
+            {"name": "黑松露山葵沙拉酱", "spec": "1份"},
+            {"name": "0脂香菇牛肉酱", "spec": "1份"},
+            {"name": "不要酱料", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "调味模块",
+          "items": [
+            {"name": "柠檬1/6块", "spec": "1份"},
+            {"name": "不要柠檬", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "蛋白pro碗",
+      "name": "原切板腱牛排蛋白Pro碗",
+      "has_styles": true,
+      "styles": [
+        {
+          "style_name": "标准款",
+          "modules": {
+            "肉类模块": {"name": "板腱牛排", "spec": "130g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        },
+        {
+          "style_name": "加肉款",
+          "modules": {
+            "肉类模块": {"name": "板腱牛排", "spec": "170g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        }
+      ],
+      "option_groups": [
+        {
+          "group_name": "主食模块",
+          "items": [
+            {"name": "七色糙米杂粮饭", "spec": "150g"},
+            {"name": "三色藜麦糙米饭", "spec": "150g"},
+            {"name": "南瓜+红薯", "spec": "150g"}
+          ]
+        },
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "0脂海鲜汁", "spec": "1份"},
+            {"name": "0脂青椒酱", "spec": "1份"},
+            {"name": "0脂黑椒酱", "spec": "1份"},
+            {"name": "香草柠檬蘸水", "spec": "1份"},
+            {"name": "黑松露山葵沙拉酱", "spec": "1份"},
+            {"name": "0脂香菇牛肉酱", "spec": "1份"},
+            {"name": "不要酱料", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "蛋白pro碗",
+      "name": "进口上脑牛肉片蛋白Pro碗",
+      "has_styles": true,
+      "styles": [
+        {
+          "style_name": "标准款",
+          "modules": {
+            "肉类模块": {"name": "牛肉片（巴西上脑）", "spec": "140g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        },
+        {
+          "style_name": "加肉款",
+          "modules": {
+            "肉类模块": {"name": "牛肉片（巴西上脑）", "spec": "180g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        }
+      ],
+      "option_groups": [
+        {
+          "group_name": "主食模块",
+          "items": [
+            {"name": "七色糙米杂粮饭", "spec": "150g"},
+            {"name": "三色藜麦糙米饭", "spec": "150g"},
+            {"name": "南瓜+红薯", "spec": "150g"}
+          ]
+        },
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "0脂海鲜汁", "spec": "1份"},
+            {"name": "0脂青椒酱", "spec": "1份"},
+            {"name": "0脂黑椒酱", "spec": "1份"},
+            {"name": "香草柠檬蘸水", "spec": "1份"},
+            {"name": "黑松露山葵沙拉酱", "spec": "1份"},
+            {"name": "0脂香菇牛肉酱", "spec": "1份"},
+            {"name": "不要酱料", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "蛋白pro碗",
+      "name": "照烧去皮鸡腿排蛋白Pro碗",
+      "has_styles": true,
+      "styles": [
+        {
+          "style_name": "标准款",
+          "modules": {
+            "肉类模块": {"name": "去皮去骨鸡腿肉（照烧）", "spec": "160g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        },
+        {
+          "style_name": "加肉款",
+          "modules": {
+            "肉类模块": {"name": "去皮去骨鸡腿肉（照烧）", "spec": "250g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        }
+      ],
+      "option_groups": [
+        {
+          "group_name": "主食模块",
+          "items": [
+            {"name": "七色糙米杂粮饭", "spec": "150g"},
+            {"name": "三色藜麦糙米饭", "spec": "150g"},
+            {"name": "南瓜+红薯", "spec": "150g"}
+          ]
+        },
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "0脂海鲜汁", "spec": "1份"},
+            {"name": "0脂青椒酱", "spec": "1份"},
+            {"name": "0脂黑椒酱", "spec": "1份"},
+            {"name": "香草柠檬蘸水", "spec": "1份"},
+            {"name": "黑松露山葵沙拉酱", "spec": "1份"},
+            {"name": "0脂香菇牛肉酱", "spec": "1份"},
+            {"name": "不要酱料", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "蛋白pro碗",
+      "name": "奥尔良去皮鸡腿排蛋白Pro碗",
+      "has_styles": true,
+      "styles": [
+        {
+          "style_name": "标准款",
+          "modules": {
+            "肉类模块": {"name": "去皮去骨鸡腿肉（奥尔良）", "spec": "160g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        },
+        {
+          "style_name": "加肉款",
+          "modules": {
+            "肉类模块": {"name": "去皮去骨鸡腿肉（奥尔良）", "spec": "250g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        }
+      ],
+      "option_groups": [
+        {
+          "group_name": "主食模块",
+          "items": [
+            {"name": "七色糙米杂粮饭", "spec": "150g"},
+            {"name": "三色藜麦糙米饭", "spec": "150g"},
+            {"name": "南瓜+红薯", "spec": "150g"}
+          ]
+        },
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "0脂海鲜汁", "spec": "1份"},
+            {"name": "0脂青椒酱", "spec": "1份"},
+            {"name": "0脂黑椒酱", "spec": "1份"},
+            {"name": "香草柠檬蘸水", "spec": "1份"},
+            {"name": "黑松露山葵沙拉酱", "spec": "1份"},
+            {"name": "0脂香菇牛肉酱", "spec": "1份"},
+            {"name": "不要酱料", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "蛋白pro碗",
+      "name": "进口上脑牛肉片·柠檬黑椒去皮鸡腿排蛋白Pro碗",
+      "has_styles": true,
+      "styles": [
+        {
+          "style_name": "标准款",
+          "modules": {
+            "肉类模块": {"name": "牛肉片（巴西上脑）", "spec": "60g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        },
+        {
+          "style_name": "加肉款",
+          "modules": {
+            "肉类模块": {"name": "牛肉片（巴西上脑）", "spec": "100g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        }
+      ],
+      "option_groups": [
+        {
+          "group_name": "主食模块",
+          "items": [
+            {"name": "七色糙米杂粮饭", "spec": "150g"},
+            {"name": "三色藜麦糙米饭", "spec": "150g"},
+            {"name": "南瓜+红薯", "spec": "150g"}
+          ]
+        },
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "0脂海鲜汁", "spec": "1份"},
+            {"name": "0脂青椒酱", "spec": "1份"},
+            {"name": "0脂黑椒酱", "spec": "1份"},
+            {"name": "香草柠檬蘸水", "spec": "1份"},
+            {"name": "黑松露山葵沙拉酱", "spec": "1份"},
+            {"name": "0脂香菇牛肉酱", "spec": "1份"},
+            {"name": "不要酱料", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "调味模块",
+          "items": [
+            {"name": "柠檬1/6块", "spec": "1份"},
+            {"name": "不要柠檬", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "蛋白pro碗",
+      "name": "虾仁·进口上脑牛肉片·照烧去皮鸡腿排三拼蛋白Pro碗",
+      "has_styles": true,
+      "styles": [
+        {
+          "style_name": "标准款",
+          "modules": {
+            "肉类模块": {"name": "牛肉片（巴西上脑）", "spec": "50g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        },
+        {
+          "style_name": "加肉款",
+          "modules": {
+            "肉类模块": {"name": "牛肉片（巴西上脑）", "spec": "80g"},
+            "蔬菜碗模块": {"name": "烤蔬菜基底（有鸡蛋）", "spec": "1份"}
+          }
+        }
+      ],
+      "option_groups": [
+        {
+          "group_name": "主食模块",
+          "items": [
+            {"name": "七色糙米杂粮饭", "spec": "150g"},
+            {"name": "三色藜麦糙米饭", "spec": "150g"},
+            {"name": "南瓜+红薯", "spec": "150g"}
+          ]
+        },
+        {
+          "group_name": "酱汁模块",
+          "items": [
+            {"name": "0脂海鲜汁", "spec": "1份"},
+            {"name": "0脂青椒酱", "spec": "1份"},
+            {"name": "0脂黑椒酱", "spec": "1份"},
+            {"name": "香草柠檬蘸水", "spec": "1份"},
+            {"name": "黑松露山葵沙拉酱", "spec": "1份"},
+            {"name": "0脂香菇牛肉酱", "spec": "1份"},
+            {"name": "不要酱料", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "调味模块",
+          "items": [
+            {"name": "柠檬1/6块", "spec": "1份"},
+            {"name": "不要柠檬", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "鲜蔬锅",
+      "name": "冬阴功去皮鸡腿·虾仁双拼鲜蔬锅",
+      "has_styles": false,
+      "modules": {
+        "肉类模块": {"name": "去皮去骨鸡腿肉（无需腌制/切条）", "spec": "100g"},
+        "蔬菜碗模块": {"name": "鲜蔬锅基底", "spec": "1份"},
+        "调味模块": {"name": "冬阴功汤料包", "spec": "1份"}
+      },
+      "option_groups": [
+        {
+          "group_name": "调味模块",
+          "items": [
+            {"name": "椰浆", "spec": "1份"},
+            {"name": "不要椰浆", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "鲜蔬锅",
+      "name": "贵州酸汤黑鱼片鲜蔬锅",
+      "has_styles": false,
+      "modules": {
+        "肉类模块": {"name": "免浆黑鱼片", "spec": "150g"},
+        "蔬菜碗模块": {"name": "鲜蔬锅基底", "spec": "1份"},
+        "调味模块": {"name": "红酸汤汤底", "spec": "1份"}
+      },
+      "option_groups": [
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    },
+    {
+      "category": "鲜蔬锅",
+      "name": "冬阴功去皮鸡腿·虾仁·黑鱼片三拼鲜蔬锅",
+      "has_styles": false,
+      "modules": {
+        "肉类模块": {"name": "去皮去骨鸡腿肉（无需腌制/切条）", "spec": "120g"},
+        "主食模块": {"name": "荞麦面", "spec": "100g"},
+        "蔬菜碗模块": {"name": "鲜蔬锅基底", "spec": "1份"},
+        "调味模块": {"name": "冬阴功汤料包", "spec": "1份"}
+      },
+      "option_groups": [
+        {
+          "group_name": "调味模块",
+          "items": [
+            {"name": "椰浆", "spec": "1份"},
+            {"name": "不要椰浆", "spec": "/"}
+          ]
+        },
+        {
+          "group_name": "香蕉",
+          "items": [
+            {"name": "有香蕉", "spec": "1根"},
+            {"name": "不要香蕉", "spec": "/"}
+          ]
+        }
+      ]
+    }
+  ],
+  "categories": ["纤体Easy碗", "蛋白pro碗", "鲜蔬锅"],
+  "marinate_recipes": [
+    {
+      "id": "base",
+      "name": "基础腌制",
+      "target_ingredient": "肉类",
+      "base_weight_g": 1200,
+      "seasonings": [
+        {"name": "蚝油", "base_amount_g": 30},
+        {"name": "薄盐生抽", "base_amount_g": 30},
+        {"name": "生粉", "base_amount_g": 20},
+        {"name": "黑胡椒碎", "base_amount_g": 15}
+      ]
+    },
+    {
+      "id": "orleans",
+      "name": "奥尔良腌制",
+      "target_ingredient": "肉类",
+      "base_weight_g": 500,
+      "seasonings": [
+        {"name": "奥尔良腌料", "base_amount_g": 35},
+        {"name": "黑胡椒碎", "base_amount_g": 5}
+      ]
+    },
+    {
+      "id": "mediterranean",
+      "name": "地中海腌制",
+      "target_ingredient": "肉类",
+      "base_weight_g": 1200,
+      "note": "基础腌制 + 地中海腌料",
+      "extends": "base",
+      "seasonings": [
+        {"name": "地中海腌料", "base_amount_g": 20}
+      ]
+    },
+    {
+      "id": "parsley",
+      "name": "欧芹腌制",
+      "target_ingredient": "肉类",
+      "base_weight_g": 1200,
+      "note": "基础腌制 + 欧芹碎",
+      "extends": "base",
+      "seasonings": [
+        {"name": "欧芹碎", "base_amount_g": 20}
+      ]
+    },
+    {
+      "id": "roasted_veg",
+      "name": "烤时蔬",
+      "target_ingredient": "蔬菜",
+      "base_weight_g": 480,
+      "seasonings": [
+        {"name": "橄榄油", "base_amount_g": 20},
+        {"name": "黑胡椒", "base_amount_g": 5},
+        {"name": "食盐", "base_amount_g": 2}
+      ]
+    }
+  ]
+}

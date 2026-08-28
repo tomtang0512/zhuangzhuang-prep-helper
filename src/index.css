@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { @apply border-border; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-[#f5f5f5] text-foreground; font-size: 16px; }
+  button, input, select { font: inherit; }
+}
+
+@layer components {
+  .input {
+    @apply h-12 w-full rounded-lg border border-slate-300 bg-white px-3 text-base text-slate-800 outline-none transition-none focus:border-[#4CAF50] focus:ring-2 focus:ring-[#4CAF50]/20;
+  }
+  .input::placeholder { @apply text-sm text-slate-400; }
+  select.input { @apply appearance-auto pr-2; }
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-base font-semibold leading-5 transition-none disabled:opacity-50;
+  }
+  .nav {
+    @apply min-h-11 rounded-lg px-3 py-2 text-base font-semibold text-slate-600;
+  }
+  .nav.active { @apply bg-[#4CAF50] text-white; }
+  .tab { @apply min-h-11 border-b-2 border-transparent px-1 py-2 text-base font-semibold text-slate-500; }
+  .tab-on { @apply border-[#4CAF50] text-[#388E3C]; }
+}
