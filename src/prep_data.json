@@ -1845,11 +1845,11 @@
       "id": "orleans",
       "name": "奥尔良腌制",
       "target_ingredient": "肉类",
-      "base_weight_g": 500,
+      "base_weight_g": 1200,
       "seasonings": [
         {
           "name": "奥尔良腌料",
-          "base_amount_g": 35
+          "base_amount_g": 72
         },
         {
           "name": "黑胡椒碎",
