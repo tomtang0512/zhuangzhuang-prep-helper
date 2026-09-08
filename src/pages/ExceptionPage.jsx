@@ -11,19 +11,36 @@ const LEVEL_STYLE = {
   L3: "bg-red-100 text-red-700",
 };
 
+function tokenize(text) {
+  return String(text || "").replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, "").toLowerCase();
+}
+
 function matchItems(query) {
-  const q = query.trim();
+  const q = tokenize(query);
   if (!q) return [];
+  const qChars = new Set(q);
+
   const scored = allItems.map((item) => {
     const keywords = [item.type, item.module, item.description, ...(item.keywords || [])].filter(Boolean);
     let score = 0;
+
+    // 1. 精确子串匹配（最高权重）
     for (const kw of keywords) {
-      if (!kw) continue;
-      if (q.includes(kw)) score += kw.length;
-      else if (kw.includes(q)) score += q.length * 0.5;
+      const k = tokenize(kw);
+      if (!k) continue;
+      if (q.includes(k)) score = Math.max(score, k.length * 4);
+      else if (k.length >= 2 && k.includes(q)) score = Math.max(score, q.length * 2);
     }
+
+    // 2. 字符重叠模糊匹配（兜底：至少 2 个共同字符才计入）
+    const searchChars = new Set(tokenize(keywords.join("")));
+    let overlap = 0;
+    for (const ch of qChars) if (searchChars.has(ch)) overlap++;
+    if (overlap >= 2) score += overlap * 2;
+
     return { item, score };
   });
+
   return scored.filter((x) => x.score > 0).sort((a, b) => b.score - a.score);
 }
 
