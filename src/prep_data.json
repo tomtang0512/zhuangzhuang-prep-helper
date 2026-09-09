@@ -1905,5 +1905,13 @@
         }
       ]
     }
-  ]
+  ],
+  "shrimp_conversion": {
+    "match": "虾仁",
+    "points": [
+      { "count": 3, "grams": 30 },
+      { "count": 4, "grams": 50 },
+      { "count": 6, "grams": 80 }
+    ]
+  }
 }
