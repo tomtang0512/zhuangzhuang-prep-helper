@@ -434,10 +434,10 @@ return { dish, score };
 .sort((a, b) => b.score - a.score);
 }
 
-function dishToText(dish) {
+function dishToText(dish, qty) {
 const lines = [`■ 菜品：${dish.sku}（${dish.category}）`];
 dish.variants.forEach((v) => {
-lines.push(`◆ 规格：${v.spec || "标准"}`);
+lines.push(`◆ 规格：${v.spec || "标准"}${qty ? ` × ${qty} 份` : ""}`);
 const t = v.total || {};
 lines.push(
 `整体：${t.grams ?? "-"}g / ${t.kcal ?? "-"}kcal / 蛋白质${t.protein ?? "-"}g / 脂肪${t.fat ?? "-"}g / 碳水${t.carbs ?? "-"}g / 成本${t.cost ?? "-"}元`
@@ -456,13 +456,16 @@ item.carbs != null ? `碳水${item.carbs}g` : null,
 item.cost != null ? `成本${item.cost}元` : null,
 item.note ? `备注：${item.note}` : null,
 ].filter(Boolean);
-lines.push(`- ${bits.join(" / ")}`);
+const scale = qty && typeof item.grams === "number" ? `（${qty}份共${Math.round(item.grams * qty)}g）` : "";
+lines.push(`- ${bits.join(" / ")}${scale}`);
 });
 });
 return lines.join("\n");
 }
 
 function buildContext(question) {
+const qtyMatch = question.match(/(\d+)\s*(?:个|份|碗|盒|只|人份)/);
+const qty = qtyMatch ? parseInt(qtyMatch[1], 10) : null;
 const items = rankItems(question).slice(0, 2);
 const lines = rankRedlines(question).slice(0, 2);
 const dishes = rankDishes(question).slice(0, 2);
@@ -479,7 +482,7 @@ parts.push(`◆ 红线${line.no}：${line.title}`);
 if (line.warn) parts.push(`- ${line.warn}`);
 });
 dishes.forEach(({ dish }) => {
-parts.push(dishToText(dish));
+parts.push(dishToText(dish, qty));
 });
 if (!parts.length) {
 parts.push("◆ 全店红线（共 " + redlines.length + " 条）");

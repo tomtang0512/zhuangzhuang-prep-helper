@@ -9,6 +9,7 @@ const SYSTEM_PROMPT = [
   "3. 回答简短、口语化，方便店员在出餐间隙快速查看；涉及数字/规格必须原样给出。",
   "4. 资料里的每个步骤、每个要点都要列出，不得省略、不得用“等”概括；用 1. 2. 3. 分点说明。",
   "5. 不要编造红线、时间、克重、温度等任何信息。",
+  "6. 如果店员问「做 N 份 / N 个 / N 碗」，必须把资料里每份的克重 × N，列出每种食材的总量（如 30g/份 × 8 = 240g），不要只重复每份的量。",
 ].join("\n");
 
 const CORS = {
@@ -20,7 +21,14 @@ const CORS = {
 export default {
   async fetch(request, env) {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
-    if (request.method !== "POST") return new Response("method not allowed", { status: 405 });
+    if (request.method === "GET" && new URL(request.url).pathname === "/") {
+      return new Response(JSON.stringify({ ok: true, name: "zz-kimi-proxy" }), {
+        headers: { "Content-Type": "application/json; charset=utf-8", ...CORS },
+      });
+    }
+    if (request.method !== "POST" || new URL(request.url).pathname !== "/ask") {
+      return new Response("not found", { status: 404 });
+    }
 
     let payload;
     try { payload = await request.json(); } catch { return new Response("bad json", { status: 400 }); }
