@@ -345,8 +345,8 @@ haystack: [section.name, group.name, item.name, item.note || "", stepsOf(item).m
 );
 
 // ===== 问 SOP：本地检索 + Kimi 回答 =====
-// 代理地址：本地开发用 http://127.0.0.1:8787/ask；部署后改成 Worker 地址；留空则只用本地检索。
-const AI_ENDPOINT = "http://127.0.0.1:8787/ask";
+// 代理地址：线上用 Netlify 函数（key 存在服务端，页面拿不到）；本地调试可改回 127.0.0.1:8787
+const AI_ENDPOINT = "https://zz-kimi-proxy.netlify.app/api/ask";
 
 function tokenize(text) {
 return String(text).toLowerCase().replace(/[，。？！?,.\s！!]/g, " ");
