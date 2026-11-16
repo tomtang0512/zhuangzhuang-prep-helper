@@ -1,5 +1,10 @@
 node_modules
 dist
+dist-single
 .vscode
 .idea
 *.log
+.env
+.env.*
+proxy/.env
+.DS_Store

@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { Leaf, ShieldAlert } from "lucide-react";
+import { BookOpen, Leaf, ShieldAlert } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import ExceptionPage from "./pages/ExceptionPage.jsx";
+import SopPage from "./pages/SopPage.jsx";
 
 const TABS = [
   { id: "prep", label: "餐品备料", icon: Leaf },
   { id: "exception", label: "异常处理", icon: ShieldAlert },
+  { id: "sop", label: "SOP百科", icon: BookOpen },
 ];
 
 const App = () => {
@@ -20,7 +22,7 @@ const App = () => {
             </div>
             <div>
               <h1 className="text-lg font-bold text-slate-900">壮壮FIT 门店助手</h1>
-              <p className="text-sm text-slate-500">餐品备料 · 门店异常处理</p>
+              <p className="text-sm text-slate-500">餐品备料 · 门店异常处理 · SOP百科</p>
             </div>
           </div>
           <nav className="mt-4 flex gap-1">
@@ -45,7 +47,7 @@ const App = () => {
           </nav>
         </div>
       </header>
-      {tab === "prep" ? <Index /> : <ExceptionPage />}
+      {tab === "prep" ? <Index /> : tab === "exception" ? <ExceptionPage /> : <SopPage />}
     </main>
   );
 };
