@@ -1,0 +1,3 @@
+{
+  "entrypoint": "proxy/deno-proxy.ts"
+}
