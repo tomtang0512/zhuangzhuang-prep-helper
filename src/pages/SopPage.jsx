@@ -347,6 +347,8 @@ haystack: [section.name, group.name, item.name, item.note || "", stepsOf(item).m
 // ===== 问 SOP：本地检索 + Kimi 回答 =====
 // 代理地址：线上用 Netlify 函数（key 存在服务端，页面拿不到）；本地调试可改回 127.0.0.1:8787
 const AI_ENDPOINT = "https://zz-kimi-proxy.netlify.app/api/ask";
+// 页面版本号（每次发版递增，方便确认手机浏览器拿到的是不是最新页面）
+const APP_VERSION = "2026.11.16.4";
 
 function tokenize(text) {
 return String(text).toLowerCase().replace(/[，。？！?,.\s！!]/g, " ");
@@ -1415,7 +1417,8 @@ return (
 
 <p className="flex items-start gap-1.5 px-1 pt-1 text-[12px] leading-relaxed text-slate-400">
           <Star size={12} className="mt-0.5 shrink-0 fill-red-500 text-red-500" />
-          步骤里标红的“关键”步骤是维持品质稳定的重点，不可省略或改动。
+          <span>步骤里标红的“关键”步骤是维持品质稳定的重点，不可省略或改动。</span>
+          <span className="ml-auto shrink-0 pl-2 text-[11px] text-slate-300">v{APP_VERSION}</span>
         </p>
           </>
         )}
