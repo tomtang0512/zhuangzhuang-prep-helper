@@ -471,17 +471,24 @@ const lines = rankRedlines(question).slice(0, 2);
 const dishes = rankDishes(question).slice(0, 2);
 const parts = [];
 
-// 页面先把总量算好，避免 AI 漏乘：把含克重的步骤按 N 份放大
+// 页面先把总量算好，避免 AI 漏乘：把含克重/±的片段按 N 份放大
 const scaleStep = (text, n) => {
-if (!n || n <= 1 || !/\d/.test(text) || !/(g|克)/.test(text)) return null;
-const scaled = String(text).replace(/(\d+(?:\.\d+)?)(\s*±\s*\d+)?\s*(g|克)/g, (m, base, pm, unit) => {
+if (!n || n <= 1 || !/(g|克|±)/.test(text)) return null;
+const out = String(text)
+.split(/([/、；;]+)/)
+.map((seg) => {
+if (!/(±|\d\s*(?:g|克|ml))/.test(seg)) return seg;
+return seg.replace(/(\d+(?:\.\d+)?)(\s*±\s*\d+(?:\.\d+)?)?(\s*(?:g|克|ml))?/g, (m, base, pm, unit) => {
 const b = parseFloat(base);
-let out = `${Math.round(b * n)}${unit}`;
-if (pm) out += `±${Math.round(parseFloat(pm.replace(/[^\d.]/g, "")) * n)}`;
-return out;
+if (!isFinite(b) || b === 0) return m;
+let s = `${Math.round(b * n)}${unit ? unit.trim() : ""}`;
+if (pm) s += `±${Math.round(parseFloat(pm.replace(/[^\d.]/g, "")) * n)}`;
+return s;
 });
-if (scaled === text) return null;
-return scaled.replace(/\/份/g, `/份×${n}（即${n}份总量）`);
+})
+.join("");
+if (out === text) return null;
+return out.replace(/\/份/g, `/份×${n}（即${n}份总量）`);
 };
 items.forEach(({ item }) => {
 parts.push(`■ ${item.name}（${item.secName} › ${item.group}）`);
