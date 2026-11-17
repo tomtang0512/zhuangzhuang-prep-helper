@@ -22,7 +22,7 @@ const App = () => {
             </div>
             <div>
               <h1 className="text-lg font-bold text-slate-900">壮壮FIT 门店助手</h1>
-              <p className="text-sm text-slate-500">餐品备料 · 门店异常处理 · SOP百科 <span className="text-[11px] text-slate-400">v2026.11.16.4</span></p>
+              <p className="text-sm text-slate-500">餐品备料 · 门店异常处理 · SOP百科 <span className="text-[11px] text-slate-400">v2026.11.16.5</span></p>
             </div>
           </div>
           <nav className="mt-4 flex gap-1">
