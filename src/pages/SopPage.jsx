@@ -470,10 +470,27 @@ const items = rankItems(question).slice(0, 2);
 const lines = rankRedlines(question).slice(0, 2);
 const dishes = rankDishes(question).slice(0, 2);
 const parts = [];
+
+// 页面先把总量算好，避免 AI 漏乘：把含克重的步骤按 N 份放大
+const scaleStep = (text, n) => {
+if (!n || n <= 1 || !/\d/.test(text) || !/(g|克)/.test(text)) return null;
+const scaled = String(text).replace(/(\d+(?:\.\d+)?)(\s*±\s*\d+)?\s*(g|克)/g, (m, base, pm, unit) => {
+const b = parseFloat(base);
+let out = `${Math.round(b * n)}${unit}`;
+if (pm) out += `±${Math.round(parseFloat(pm.replace(/[^\d.]/g, "")) * n)}`;
+return out;
+});
+if (scaled === text) return null;
+return scaled.replace(/\/份/g, `/份×${n}（即${n}份总量）`);
+};
 items.forEach(({ item }) => {
 parts.push(`■ ${item.name}（${item.secName} › ${item.group}）`);
 item.steps.forEach((step, i) => parts.push(`${i + 1}. ${step.key ? "【关键】" : ""}${step.t}`));
 if (item.note) parts.push(`备注：${item.note}`);
+if (qty) {
+const scaled = item.steps.map((step) => scaleStep(step.t, qty)).filter(Boolean);
+if (scaled.length) parts.push(`【按 ${qty} 份换算】` + scaled.join("；"));
+}
 });
 lines.forEach(({ line }) => {
 parts.push(`◆ 红线${line.no}：${line.title}`);
