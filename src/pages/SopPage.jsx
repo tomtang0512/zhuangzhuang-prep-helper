@@ -572,9 +572,21 @@ setTimeout(() => setStage(2), 12000),
 ];
 const { text, items, lines, dishes } = buildContext(question);
 const fallback = () => {
-if (items.length) return { q: question, kind: "item", item: items[0].item, items, lines };
-if (lines.length) return { q: question, kind: "redline", line: lines[0].line, items, lines };
-return { q: question, kind: "none", items, lines };
+const qtyMatch = question.match(/(\d+)\s*(?:个|份|碗|盒|只|人份)/);
+const qty = qtyMatch ? parseInt(qtyMatch[1], 10) : null;
+const parts = [];
+dishes.forEach(({ dish }) => parts.push(dishToText(dish, qty)));
+items.forEach(({ item }) => {
+parts.push(`■ ${item.name}（${item.secName} › ${item.group}）`);
+item.steps.forEach((step, i) => parts.push(`${i + 1}. ${step.key ? "【关键】" : ""}${step.t}`));
+if (item.note) parts.push(`备注：${item.note}`);
+});
+lines.forEach(({ line }) => {
+parts.push(`◆ 红线${line.no}：${line.title}`);
+(line.points || []).forEach((p) => parts.push(`- ${p}`));
+});
+if (parts.length) return { q: question, kind: "ai", answer: parts.join("\n"), items, lines, dishes: dishes.map((r) => r.dish), local: true };
+return { q: question, kind: "none", items, lines, dishes: dishes.map((r) => r.dish) };
 };
 let entry;
 try {
@@ -585,7 +597,8 @@ entry = { q: question, kind: "ai", answer, items, lines, dishes: dishes.map((r) 
 entry = fallback();
 }
 } catch (e) {
-entry = { ...fallback(), error: String(e.message || e) };
+const fb = fallback();
+entry = { ...fb, error: fb.local ? "AI 暂时不可用，已按本地资料回答" : String(e.message || e) };
 }
 save([entry, ...history].slice(0, 20));
 setQ("");
