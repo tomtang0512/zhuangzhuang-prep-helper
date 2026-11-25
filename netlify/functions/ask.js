@@ -1,5 +1,6 @@
 // Netlify Function：接收 {question, context} → 调 Kimi → 返回答案
 // key 存在站点环境变量 KIMI_KEY 里（页面上拿不到）
+// 2026-11 优化：429 限流自动重试 + max_tokens 1600→800（提速）+ 失败快速返回
 const MODEL = "kimi-k3";
 const SYSTEM_PROMPT = [
   "你是壮壮FIT门店的SOP助手，服务对象是一线店员。",
@@ -17,6 +18,28 @@ const CORS = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
 };
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// 429/529 自动重试，避免偶发限流直接失败
+async function callKimi(key, payload, maxAttempts = 2) {
+  let lastStatus = 0;
+  for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+    const r = await fetch("https://api.moonshot.cn/v1/chat/completions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
+      body: JSON.stringify(payload),
+    });
+    if (r.status === 429 || r.status === 529) {
+      lastStatus = r.status;
+      await sleep(1500 * (attempt + 1));
+      continue;
+    }
+    const data = await r.json().catch(() => null);
+    return { ok: r.ok, status: r.status, data };
+  }
+  return { ok: false, status: lastStatus || 429, data: null };
+}
 
 exports.handler = async (event) => {
   if (event.httpMethod === "OPTIONS") {
@@ -47,24 +70,19 @@ exports.handler = async (event) => {
   const key = process.env.KIMI_KEY;
   if (!key) return { statusCode: 500, headers: CORS, body: "KIMI_KEY not set" };
 
-  const r = await fetch("https://api.moonshot.cn/v1/chat/completions", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-    body: JSON.stringify({
-      model: MODEL,
-      temperature: 1,
-      max_tokens: 1600,
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        { role: "user", content: `【SOP资料】\n${context}\n\n【店员的问题】\n${question}` },
-      ],
-    }),
+  const { ok, status, data } = await callKimi(key, {
+    model: MODEL,
+    temperature: 1,
+    max_tokens: 800,
+    messages: [
+      { role: "system", content: SYSTEM_PROMPT },
+      { role: "user", content: `【SOP资料】\n${context}\n\n【店员的问题】\n${question}` },
+    ],
   });
-  const data = await r.json();
-  const answer = r.ok ? data?.choices?.[0]?.message?.content || "" : "";
+  const answer = ok ? data?.choices?.[0]?.message?.content || "" : "";
   return {
-    statusCode: r.ok ? 200 : 502,
+    statusCode: ok ? 200 : 502,
     headers: { ...CORS, "Content-Type": "application/json; charset=utf-8" },
-    body: JSON.stringify({ answer, error: r.ok ? undefined : `kimi ${r.status}` }),
+    body: JSON.stringify({ answer, error: ok ? undefined : `kimi ${status}` }),
   };
 };
