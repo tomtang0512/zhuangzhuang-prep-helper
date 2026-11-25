@@ -517,7 +517,11 @@ redlines.forEach((line) => parts.push(`红线${line.no}：${line.title}`));
 return { text: parts.join("\n"), items, lines, dishes };
 }
 
-async function askKimi(question, context, signal) {
+async function askKimi(question, context, signal, onRetry) {
+const maxAttempts = 3;
+let lastErr = null;
+for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+try {
 const res = await fetch(AI_ENDPOINT, {
 method: "POST",
 headers: { "Content-Type": "application/json" },
@@ -528,6 +532,17 @@ if (!res.ok) throw new Error(`代理返回 ${res.status}`);
 const data = await res.json();
 if (data.error) throw new Error(data.error);
 return String(data.answer || "").trim();
+} catch (e) {
+lastErr = e;
+if (attempt < maxAttempts - 1 && !(signal && signal.aborted)) {
+if (onRetry) onRetry(attempt + 2, maxAttempts);
+await new Promise((r) => setTimeout(r, 2500 * (attempt + 1)));
+continue;
+}
+throw e;
+}
+}
+throw lastErr;
 }
 
 const QA_KEY = "zz_sop_qa_history";
@@ -536,6 +551,7 @@ function AiView({ onOpenItem, onMinimize, onClose }) {
 const [q, setQ] = useState("");
 const [busy, setBusy] = useState(false);
 const [stage, setStage] = useState(0);
+const [retryMsg, setRetryMsg] = useState("");
 const stageTimers = useRef([]);
 const scrollRef = useRef(null);
 const [history, setHistory] = useState(() => {
@@ -564,6 +580,7 @@ const question = (questionText != null ? questionText : q).trim();
 if (!question || busy) return;
 setBusy(true);
 setStage(0);
+setRetryMsg("");
 requestAnimationFrame(() => scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" }));
 stageTimers.current.forEach((t) => clearTimeout(t));
 stageTimers.current = [
@@ -591,7 +608,7 @@ return { q: question, kind: "none", items, lines, dishes: dishes.map((r) => r.di
 let entry;
 try {
 if (AI_ENDPOINT) {
-const answer = await askKimi(question, text);
+const answer = await askKimi(question, text, null, (n, total) => setRetryMsg(`网络繁忙，第 ${n}/${total} 次重试…`));
 entry = { q: question, kind: "ai", answer, items, lines, dishes: dishes.map((r) => r.dish) };
 } else {
 entry = fallback();
@@ -604,6 +621,7 @@ save([entry, ...history].slice(0, 20));
 setQ("");
 setBusy(false);
 setStage(0);
+setRetryMsg("");
 stageTimers.current.forEach((t) => clearTimeout(t));
 };
 
@@ -673,7 +691,7 @@ className="rounded-full bg-slate-100 px-3 py-1.5 text-left text-[13px] font-medi
 <span className="h-2 w-2 animate-bounce rounded-full bg-violet-500 [animation-delay:-0.15s]" />
 <span className="h-2 w-2 animate-bounce rounded-full bg-violet-500" />
 </span>
-<p className="text-[14px] font-medium text-slate-600">{STAGE_TEXT[stage]}</p>
+<p className="text-[14px] font-medium text-slate-600">{retryMsg || STAGE_TEXT[stage]}</p>
 </div>
 <div className="mt-2 h-1 overflow-hidden rounded-full bg-slate-100">
 <div className="h-full w-1/3 animate-[slide_1.6s_ease-in-out_infinite] rounded-full bg-violet-400" />
