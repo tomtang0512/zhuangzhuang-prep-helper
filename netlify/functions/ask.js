@@ -1,7 +1,6 @@
 // Netlify Function：接收 {question, context} → 调 Kimi → 返回答案
-// key 存在站点环境变量 KIMI_KEY 里（页面上拿不到）
-// 2026-11 优化：429 限流自动重试 + max_tokens 1600→800（提速）+ 失败快速返回
-const MODEL = "kimi-k3";
+// 2026-11 优化：模型可指定 + 429 重试 + 错误详情 + 模型列表调试
+const DEFAULT_MODEL = "kimi-k3";
 const SYSTEM_PROMPT = [
   "你是壮壮FIT门店的SOP助手，服务对象是一线店员。",
   "规则（必须严格遵守）：",
@@ -21,31 +20,51 @@ const CORS = {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// 429/529 自动重试，避免偶发限流直接失败
-async function callKimi(key, payload, maxAttempts = 2) {
+// 429/529 自动重试；其他错误直接返回详情
+async function callKimi(key, model, payload, maxAttempts = 3) {
   let lastStatus = 0;
+  let lastBody = "";
   for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
     const r = await fetch("https://api.moonshot.cn/v1/chat/completions", {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({ ...payload, model }),
     });
+    const data = await r.json().catch(() => null);
     if (r.status === 429 || r.status === 529) {
       lastStatus = r.status;
-      await sleep(1500 * (attempt + 1));
+      lastBody = JSON.stringify(data || {});
+      await sleep(2000 * (attempt + 1));
       continue;
     }
-    const data = await r.json().catch(() => null);
-    return { ok: r.ok, status: r.status, data };
+    if (!r.ok) {
+      return { ok: false, status: r.status, error: JSON.stringify(data || {}).slice(0, 300) };
+    }
+    return { ok: true, status: r.status, data };
   }
-  return { ok: false, status: lastStatus || 429, data: null };
+  return { ok: false, status: lastStatus || 429, error: lastBody.slice(0, 300) };
 }
 
 exports.handler = async (event) => {
   if (event.httpMethod === "OPTIONS") {
     return { statusCode: 204, headers: CORS, body: "" };
   }
+  const key = process.env.KIMI_KEY;
+
   if (event.httpMethod === "GET") {
+    // 调试：列出账号可用模型
+    if (event.queryStringParameters && event.queryStringParameters.models === "1") {
+      if (!key) return { statusCode: 500, headers: CORS, body: "KIMI_KEY not set" };
+      const r = await fetch("https://api.moonshot.cn/v1/models", {
+        headers: { Authorization: `Bearer ${key}` },
+      });
+      const data = await r.json().catch(() => null);
+      return {
+        statusCode: r.ok ? 200 : 502,
+        headers: { ...CORS, "Content-Type": "application/json; charset=utf-8" },
+        body: JSON.stringify(data || { error: r.status }),
+      };
+    }
     return {
       statusCode: 200,
       headers: { ...CORS, "Content-Type": "application/json; charset=utf-8" },
@@ -62,16 +81,13 @@ exports.handler = async (event) => {
   } catch {
     return { statusCode: 400, headers: CORS, body: "bad json" };
   }
-  const { question, context } = payload || {};
+  const { question, context, model } = payload || {};
   if (!question || !context) {
     return { statusCode: 400, headers: CORS, body: "question/context required" };
   }
-
-  const key = process.env.KIMI_KEY;
   if (!key) return { statusCode: 500, headers: CORS, body: "KIMI_KEY not set" };
 
-  const { ok, status, data } = await callKimi(key, {
-    model: MODEL,
+  const { ok, status, data, error } = await callKimi(key, model || DEFAULT_MODEL, {
     temperature: 1,
     max_tokens: 800,
     messages: [
@@ -83,6 +99,6 @@ exports.handler = async (event) => {
   return {
     statusCode: ok ? 200 : 502,
     headers: { ...CORS, "Content-Type": "application/json; charset=utf-8" },
-    body: JSON.stringify({ answer, error: ok ? undefined : `kimi ${status}` }),
+    body: JSON.stringify({ answer, error: ok ? undefined : error || `kimi ${status}` }),
   };
 };
